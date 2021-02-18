@@ -9,9 +9,15 @@ export default defineComponent({
     processNow: {
       default: false,
     },
+    onSuccessMsg: {
+      default: undefined,
+    },
+    onErrorMsg: {
+      default: undefined,
+    },
   },
   setup (props, ctx) {
-    const { process, ...rest } = createLoader(props.callback)
+    const { process, ...rest } = createLoader(props.callback, props.onSuccessMsg, props.onErrorMsg)
     onMounted(() => {
       if (props.processNow) {
         process()

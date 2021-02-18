@@ -18,7 +18,7 @@ const getModAdk = (
   defaultADKProperties?: Record<string, any>,
   propName = 'value',
 ) => {
-  const { programDoc } = getModMongoDoc(propName, props, emit)
+  const { programDoc } = getModMongoDoc(props, emit, defaultADKProperties, propName)
 
   let adkIndex = (programDoc.value.data.adks as any[]).findIndex(
     (obj: Record<string, any>) => {
