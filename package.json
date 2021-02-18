@@ -123,5 +123,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1"
   }
 }

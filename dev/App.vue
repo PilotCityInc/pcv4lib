@@ -15,15 +15,15 @@
         />
       </v-toolbar-items>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container fluid>
         <v-row>
           <v-col cols="12">
-            YOUR CUSTOM COMPONENT SHOULD GO HERE <v-icon :icon="icons.check" color="success" />
+            <your-component />
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
