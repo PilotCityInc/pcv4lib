@@ -12,11 +12,11 @@ import getModMongoDoc from './getModMongoDoc'
  * @return {*}
  */
 const getModAdk = (
-  propName = 'value',
   props: { [x: string]: any},
   emit: SetupContext['emit'],
   adkName: string,
   defaultADKProperties?: Record<string, any>,
+  propName = 'value',
 ) => {
   const { programDoc } = getModMongoDoc(propName, props, emit)
 
