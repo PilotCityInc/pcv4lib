@@ -7,27 +7,20 @@
         type: Function,
         required: true,
       },
-      linearLoader: {
-        type: Boolean,
-      },
       processNow: {
         default: false,
       },
     },
     setup (props, ctx) {
-      const { loading, process } = createLoader(props.callback)
+      const { process, ...rest } = createLoader(props.callback)
       onMounted(() => {
         if (props.processNow) {
           process()
         }
       })
-      //   return {
-      //     loading,
-      //     process,
-      //   }
       return () => ctx.root.$scopedSlots?.default!({
-        loading,
         process,
+        ...rest,
       })
     },
   })

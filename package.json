@@ -4,10 +4,10 @@
   "description": "A PITHY EXCITING DESCRIPTION FOR YOUR COMPONENT.",
   "author": "Juxsta <ericjrreyes2@gmail.com>",
   "license": "MIT",
-  "main": "dist/REPLACE_WITH_YOUR_COMPONENT_NAME.js",
-  "module": "dist/REPLACE_WITH_YOUR_COMPONENT_NAME.js",
-  "jsdelivr": "dist/REPLACE_WITH_YOUR_COMPONENT_NAME.js",
-  "unpkg": "dist/REPLACE_WITH_YOUR_COMPONENT_NAME.js",
+  "main": "dist/pcv4lib.js",
+  "module": "dist/pcv4lib.js",
+  "jsdelivr": "dist/pcv4lib.js",
+  "unpkg": "dist/pcv4lib.js",
   "types": "types/index.d.ts",
   "files": [
     "dist/",
@@ -20,13 +20,13 @@
     "vuetify",
     "vue"
   ],
-  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/REPLACE_WITH_YOUR_COMPONENT_NAME#readme",
+  "homepage": "https://github.com/juxsta/pcv4libext#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_GITHUB_USERNAME/REPLACE_WITH_YOUR_COMPONENT_NAME.git"
+    "url": "https://github.com/juxsta/pcv4libext.git"
   },
   "bugs": {
-    "url": "https://github.com/YOUR_GITHUB_USERNAME/REPLACE_WITH_YOUR_COMPONENT_NAME/issues"
+    "url": "https://github.com/juxsta/pcv4libext/issues"
   },
   "scripts": {
     "build": "concurrently \"yarn build:dist --no-progress\" \"yarn build:lib\" -n \"dist,lib\" --kill-others-on-fail -r",
