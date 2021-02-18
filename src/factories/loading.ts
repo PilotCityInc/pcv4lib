@@ -14,7 +14,7 @@ const createLoader = (func: () => Promise<any>, onSuccessMsg?: string, onErrorMs
   const process = async () => {
     state.loading = true
     try {
-      await process()
+      await func()
       state.error = false
       state.success = true
       state.message = onSuccessMsg || ''
