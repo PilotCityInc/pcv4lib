@@ -4,13 +4,14 @@ import getModMongoDoc from './getModMongoDoc'
 /**
  * ! Only for use in vue components
  * Adds new data for Adks array in existing mongo document
+ * Will create ADK using defaultADKProperties if it doesnt exist
  * @param {Ref<MongoDoc>} programDocProp
  * @param {SetupContext['emit']} ctx
  * @param {string} adkName
  * @param {Record<string, any>} [defaultADKProperties]
  * @return {*}
  */
-const getADKData = (
+const getModAdk = (
   programDocProp: Ref<MongoDoc>,
   ctx: SetupContext['emit'],
   adkName: string,
@@ -18,7 +19,7 @@ const getADKData = (
 ) => {
   const { programDoc } = getModMongoDoc(programDocProp, ctx)
 
-  let adkIndex = programDoc.value.data.adks.findIndex(
+  let adkIndex = (programDoc.value.data.adks as any[]).findIndex(
     (obj: Record<string, any>) => {
       return obj.name === adkName
     },
@@ -42,6 +43,7 @@ const getADKData = (
 
   return {
     adkData,
+    adkIndex,
   }
 }
-export default getADKData
+export default getModAdk

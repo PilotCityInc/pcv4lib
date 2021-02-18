@@ -1,1 +1,1 @@
-export { default as PLoader } from './PLoader.vue'
+export { default as PLoader } from './PLoader'
