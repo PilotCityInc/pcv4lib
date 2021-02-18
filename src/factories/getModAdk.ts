@@ -1,8 +1,8 @@
-import { MongoDoc } from '../types'
-import { computed, Ref, SetupContext } from '@vue/composition-api'
+import { computed, SetupContext } from '@vue/composition-api'
 import getModMongoDoc from './getModMongoDoc'
 /**
  * ! Only for use in vue components
+ * ! PropName must correspond to a MongoDoc
  * Adds new data for Adks array in existing mongo document
  * Will create ADK using defaultADKProperties if it doesnt exist
  * @param {Ref<MongoDoc>} programDocProp
@@ -13,7 +13,7 @@ import getModMongoDoc from './getModMongoDoc'
  */
 const getModAdk = (
   propName = 'value',
-  props: { [x: string]: MongoDoc},
+  props: { [x: string]: any},
   emit: SetupContext['emit'],
   adkName: string,
   defaultADKProperties?: Record<string, any>,

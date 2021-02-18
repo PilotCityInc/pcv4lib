@@ -1,7 +1,8 @@
-import { MongoDoc } from '../types'
-import { computed, SetupContext, Ref } from '@vue/composition-api'
+import { MongoDoc } from './../types'
+import { computed, SetupContext } from '@vue/composition-api'
 /**
  * ! Only For use in vue components
+ * ! PropName must correspond to a MongoDoc
  * Adds new data to existing Mongo Document
  * @param {Ref<MongoDoc>} programDocProp
  * @param {SetupContext['emit']} emit
@@ -10,12 +11,12 @@ import { computed, SetupContext, Ref } from '@vue/composition-api'
  */
 const getModMongoDoc = (
   propName = 'value',
-  props: { [x: string]: MongoDoc},
+  props: { [x: string]: any},
   emit: SetupContext['emit'],
   defaultDataProperties?: Record<string, any>,
 ) => {
   const programDoc = computed({
-    get: () => props[propName],
+    get: () => props[propName] as MongoDoc,
     set: newVal => {
       emit('input', newVal)
     },
