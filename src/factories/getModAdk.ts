@@ -6,18 +6,19 @@ import getModMongoDoc from './getModMongoDoc'
  * Adds new data for Adks array in existing mongo document
  * Will create ADK using defaultADKProperties if it doesnt exist
  * @param {Ref<MongoDoc>} programDocProp
- * @param {SetupContext['emit']} ctx
+ * @param {SetupContext['emit']} emit
  * @param {string} adkName
  * @param {Record<string, any>} [defaultADKProperties]
  * @return {*}
  */
 const getModAdk = (
-  programDocProp: Ref<MongoDoc>,
-  ctx: SetupContext['emit'],
+  propName = 'value',
+  props: { [x: string]: MongoDoc},
+  emit: SetupContext['emit'],
   adkName: string,
   defaultADKProperties?: Record<string, any>,
 ) => {
-  const { programDoc } = getModMongoDoc(programDocProp, ctx)
+  const { programDoc } = getModMongoDoc(propName, props, emit)
 
   let adkIndex = (programDoc.value.data.adks as any[]).findIndex(
     (obj: Record<string, any>) => {

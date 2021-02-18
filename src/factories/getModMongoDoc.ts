@@ -9,12 +9,13 @@ import { computed, SetupContext, Ref } from '@vue/composition-api'
  * @return {*}
  */
 const getModMongoDoc = (
-  programDocProp: Ref<MongoDoc>,
+  propName = 'value',
+  props: { [x: string]: MongoDoc},
   emit: SetupContext['emit'],
   defaultDataProperties?: Record<string, any>,
 ) => {
   const programDoc = computed({
-    get: () => programDocProp.value,
+    get: () => props[propName],
     set: newVal => {
       emit('input', newVal)
     },
