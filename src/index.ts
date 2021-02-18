@@ -1,8 +1,8 @@
 import { VueConstructor } from 'vue'
 import YourComponent from './YourComponent'
 // import * as components from './components'
-import * as factories from './factories'
-import * as renderless from './renderless'
+export * from './factories'
+export * from './renderless'
 const YourPluginName = {
   install (Vue: VueConstructor, options?: any) {
     Vue.component('your-component', YourComponent)
@@ -11,7 +11,7 @@ const YourPluginName = {
     // })
   },
 }
-export { YourComponent, factories, renderless }
+export { YourComponent }
 export default YourPluginName
 
 if (typeof window !== 'undefined' && window.Vue) {
