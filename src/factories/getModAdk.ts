@@ -5,10 +5,12 @@ import getModMongoDoc from './getModMongoDoc'
  * ! PropName must correspond to a MongoDoc
  * Adds new data for Adks array in existing mongo document
  * Will create ADK using defaultADKProperties if it doesnt exist
- * @param {Ref<MongoDoc>} programDocProp
+ * @param {{ [x: string]: any}} props
  * @param {SetupContext['emit']} emit
  * @param {string} adkName
  * @param {Record<string, any>} [defaultADKProperties]
+ * @param {string} [propName='value']
+ * @param {('Program' | 'Student' | 'Team')} [collection='Program']
  * @return {*}
  */
 const getModAdk = (
@@ -17,6 +19,7 @@ const getModAdk = (
   adkName: string,
   defaultADKProperties?: Record<string, any>,
   propName = 'value',
+  collection: 'Program' | 'Student' | 'Team' = 'Program',
 ) => {
   const { programDoc } = getModMongoDoc(props, emit, defaultADKProperties, propName)
 
@@ -33,6 +36,16 @@ const getModAdk = (
       ...defaultADKProperties,
       ...programDoc.value.data.adks[adkIndex],
     }
+  }
+
+  // ! Use this to handle when doc logic diverges
+  switch (collection) {
+    case 'Program':
+      break
+    case 'Student':
+      break
+    case 'Team':
+      break
   }
 
   const adkData = computed({
