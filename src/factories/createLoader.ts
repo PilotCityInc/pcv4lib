@@ -23,6 +23,7 @@ const createLoader = (func: () => Promise<any>, onSuccessMsg?: string, onErrorMs
       state.success = false
       state.error = true
     }
+    state.loading = false
   }
   return {
     ...toRefs(state),
