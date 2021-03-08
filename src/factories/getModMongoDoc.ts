@@ -29,7 +29,7 @@ const getModMongoDoc = (
   programDoc.value = {
     ...programDoc.value,
     data: {
-      defaultDataProperties,
+      ...defaultDataProperties,
       ...programDoc.value.data,
     },
   }
