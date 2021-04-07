@@ -1,5 +1,4 @@
 // Imported Types
-/// <reference path="../node_modules/vuetify/src/globals.d.ts" />
 import Vue from 'vue'
 // import { VuetifyThemeVariant } from 'vuetify/types/services/theme'
 // import { ElementStyles } from '../types'
@@ -54,7 +53,7 @@ interface options extends InstanceType<typeof base> {
 }
 
 // Extend VTextField to define the YourComponent component
-export default base.extend<options>().extend({
+export default base.extend<options>(undefined as any).extend({
   name: 'your-component',
   props: {
     foo: {
