@@ -27,7 +27,10 @@ const getModAdk = (
 
   let adkIndex = (programDoc.value.data.adks as any[]).findIndex(
     (obj: Record<string, any>) => {
-      return obj.name === adkName
+      if (obj) {
+        return obj.name === adkName;
+      }
+      return false;
     },
   )
 
